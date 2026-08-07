@@ -1,0 +1,21 @@
+annual["dividend_price"] = np.log(annual["D12"]) - np.log(annual["Index"])
+annual["dividend_yield"] = np.log(annual["D12"]) - np.log(annual["Index"].shift(1))
+annual["earnings_price"] = np.log(annual["E12"]) - np.log(annual["Index"])
+annual["dividend_payout"] = np.log(annual["D12"]) - np.log(annual["E12"])
+annual["stock_variance"] = annual["svar"]
+annual["book_market"] = annual["b/m"]
+annual["net_equity_issuance"] = annual["ntis"]
+annual["treasury_bill"] = annual["tbl"]
+annual["long_term_yield"] = annual["lty"]
+annual["long_term_return"] = annual["ltr"]
+annual["term_spread"] = annual["lty"] - annual["tbl"]
+annual["default_yield_spread"] = annual["BAA"] - annual["AAA"]
+annual["default_return_spread"] = annual["corpr"] - annual["ltr"]
+annual["inflation"] = annual["infl"]
+
+PREDICTORS = [
+    "dividend_price", "dividend_yield", "earnings_price", "dividend_payout",
+    "stock_variance", "book_market", "net_equity_issuance", "treasury_bill",
+    "long_term_yield", "long_term_return", "term_spread", "default_yield_spread",
+    "default_return_spread", "inflation",
+]
